@@ -12,6 +12,10 @@ access_token
 key will be access_token
 value will be json.stringify(userObj)
 
+*NOTE*
+Rename .env.sample to .env and add appropriate credentials.
+Do not commit .env file to the project
+
 <!-- 
 key will be id
 value will be {
