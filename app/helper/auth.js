@@ -29,15 +29,15 @@ let auth = {
         : user_type == constants.USER_TYPE.RIDER
         ? config.auth.rider
         : config.auth.user
-    return jwt.sign(dte, config.auth.jwt_key, {
+    return jwt.sign(dte, process.env.jwt_key, {
       expiresIn: user_object.session_timeout
     })
   },
   verify_token: async function (token) {
-    return jwt.verify(token, config.auth.jwt_key)
+    return jwt.verify(token, process.env.jwt_key)
   },
   verify_global_token: async (token) => {
-    return jwt.verify(token, config.auth.jwt_key)
+    return jwt.verify(token, process.env.jwt_key)
   }
 }
 

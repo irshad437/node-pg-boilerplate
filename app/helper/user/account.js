@@ -14,7 +14,7 @@ let mx = {
     // Check whether the username or email
     // is already taken and error out if so
     if (user) {
-      throw Boom.badRequest('Email already exists')
+      throw Boom.badRequest(req, 'Email already exists')
     }
 
     // If everything checks out, send the payload through

@@ -29,7 +29,6 @@ let mx = {
     }
   },
   auth: {
-    jwt_key: '1kHK@7JmjZ5aMQGB&%z$f2i&cjB7mLR&PDqU^pyHXCKC!27@LHx',
     admin: {
       //"session_timeout":9999999999999999
       session_timeout: 9999999999999999
