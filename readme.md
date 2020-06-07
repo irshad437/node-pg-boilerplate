@@ -40,3 +40,8 @@ To run the project:
 4. Rename .env.sample to .env and add credentials to .env file
 5. run `npm run dev`
 6. hit the endpoints present in the routes directory
+
+Technologies Uses:
+- NodeJS
+- PostgreSQL
+- Redis
