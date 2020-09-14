@@ -52,12 +52,10 @@ let mx = {
     delete userObj.password
     delete userObj.above18_fair_use
 
-    // If the user is saved successfully, issue a JWT
-    let access_token = await auth_helper
-      .generate_token(userObj, constants.USER_TYPE.USER)
-      .catch((e) => {
-        throw Boom.badRequest(req, e)
-      })
+    // If the user is saved successfully, issue a token
+    let access_token = await auth_helper.generate_token().catch((e) => {
+      throw Boom.badRequest(req, e)
+    })
 
     // set accecss token in cache
     await cache_helper
@@ -86,7 +84,7 @@ let mx = {
       throw Boom.badRequest(req, 'Invalid email or password')
     })
 
-    // If the user is saved successfully, issue a JWT
+    // If the user is saved successfully, issue a token
     delete userObj.password
     delete userObj.above18_fair_use
 

@@ -17,31 +17,13 @@ module.exports = {
         let token = req.headers.authorization.split(' ')[1]
         if (token) {
           console.log('bearer_token: ', token)
-          let d = await auth_helper.verify_global_token(token).catch((e) => {
+          let d = await auth_helper.verify_token(token).catch((e) => {
             throw e
           })
 
-          let constant_mapping = {
-            admin: constants.USER_TYPE.ADMIN,
-            user: constants.USER_TYPE.USER,
-            rider: constants.USER_TYPE.RIDER
-          }
-
-          if (d.user_type === constant_mapping[path.split('/')[2]]) {
-            let u_type = path.split('/')[2]
-            // eslint-disable-next-line require-atomic-updates
-            req[u_type] = d
-
-            return h.continue
-          } else {
-            return h
-              .response({
-                success: false,
-                message: 'Not Authorized'
-              })
-              .code(403)
-              .takeover()
-          }
+          // set data in req.user for routes to access
+          req['user'] = d
+          return h.continue
         } else {
           return h
             .response({
@@ -66,7 +48,7 @@ module.exports = {
             .response({
               success: false,
               statusCode: 403,
-              message: 'Authorization Required ' + e.message
+              message: 'Authorization Required'
             })
             .code(403)
             .takeover()
