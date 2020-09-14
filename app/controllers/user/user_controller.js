@@ -1,5 +1,4 @@
-const models = require('../../models')
-const Boom = require('../../helper/error/boom_helper')
+// const models = require('../../models')
 const response_handler = require('../../helper/response_handler')
 
 let mx = {

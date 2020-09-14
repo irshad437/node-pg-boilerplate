@@ -9,7 +9,9 @@ let mx = [
   {
     method: 'POST',
     path: '/api/user/auth/signup',
-    config: {
+    options: {
+      description: 'Sign up',
+      tags: ['api'],
       pre: [{ method: account_helper.verify_unique_user }],
       handler: user_auth_controller.signup,
       validate: {
@@ -28,7 +30,9 @@ let mx = [
   {
     method: 'POST',
     path: '/api/user/auth/login',
-    config: {
+    options: {
+      description: 'Login',
+      tags: ['api'],
       handler: user_auth_controller.login,
       validate: {
         failAction: fail_action,
