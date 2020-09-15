@@ -7,10 +7,34 @@ const glob = require('glob')
 const path = require('path')
 
 const init = async () => {
-  const server = Hapi.server({
-    port: process.env.PORT,
+  const server = await new Hapi.server({
+    port: process.env.PORT || 3000,
     host: 'localhost'
   })
+
+  // Enable swagger documentaion in dev enviornment
+  if (process.env.APP_ENV == 'dev') {
+    const Pack = require('./package.json')
+    const HapiSwagger = require('hapi-swagger')
+    const inert = require('@hapi/inert')
+    const vision = require('@hapi/vision')
+
+    const swaggerOptions = {
+      info: {
+        title: 'API Documentation',
+        version: Pack.version
+      }
+    }
+
+    await server.register([
+      inert,
+      vision,
+      {
+        plugin: HapiSwagger,
+        options: swaggerOptions
+      }
+    ])
+  }
 
   // Look through the routes in
   // all the subdirectories of API

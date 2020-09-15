@@ -8,7 +8,10 @@ let mx = [
   {
     method: 'GET',
     path: '/api/user/profile',
-    config: {
+    options: {
+      description: 'Get user profile',
+      tags: ['api'],
+      notes: 'Order Cost',
       handler: user_controller.profile,
       validate: {
         failAction: fail_action,
