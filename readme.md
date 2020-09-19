@@ -22,9 +22,10 @@ To run the project:
 2. Goto project directory
 3. run `npm install`
 4. Rename .env.sample to .env and add credentials to .env file
-5. run `npm run dev`
-6. Check documentation on /documentation
-7. hit the endpoints present in the routes directory or in documentation
+5. Run migration using `node migration/index.js`
+6. run `npm run dev`
+7. Check documentation on /documentation
+8. hit the endpoints present in the routes directory or in documentation
 
 Technologies Uses:
 
