@@ -5,7 +5,6 @@ const auth_helper = require('../../helper/auth')
 const constants = require('../../constants/code')
 const response_handler = require('../../helper/response_handler')
 const config = require('../../../config')
-const cache_helper = require('../../helper/cache')
 
 async function hashPassword(password) {
   const saltRounds = config.salt_rounds
@@ -32,7 +31,7 @@ async function comparePassword(password, hash) {
 
 let mx = {
   signup: async (req, h) => {
-    let userObj = {
+    let newUserObj = {
       first_name: req.payload.first_name,
       last_name: req.payload.last_name,
       email: req.payload.email,
@@ -42,12 +41,19 @@ let mx = {
     }
 
     let hash = await hashPassword(req.payload.password)
-    userObj.password = hash
+    newUserObj.password = hash
 
     // create user
-    await models.user.create(userObj).catch((e) => {
-      throw Boom.badRequest(req, e)
-    })
+    let userObj = await models.user
+      .create(newUserObj)
+      .then((user) => {
+        return user.get({
+          plain: true
+        })
+      })
+      .catch((e) => {
+        throw Boom.badRequest(req, e)
+      })
 
     delete userObj.password
     delete userObj.above18_fair_use
@@ -58,11 +64,9 @@ let mx = {
     })
 
     // set accecss token in cache
-    await cache_helper
-      .set(access_token, JSON.stringify(userObj), config.auth_timeout.user)
-      .catch((e) => {
-        throw Boom.badRequest(req, e)
-      })
+    await auth_helper.start_session(access_token, userObj).catch((e) => {
+      throw Boom.badRequest(req, e)
+    })
 
     return response_handler.success(req, { access_token }, 'OK', h)
   },
@@ -95,11 +99,9 @@ let mx = {
       })
 
     // set accecss token in cache
-    await cache_helper
-      .set(access_token, JSON.stringify(userObj), config.auth_timeout.user)
-      .catch((e) => {
-        throw Boom.badRequest(req, e)
-      })
+    await auth_helper.start_session(access_token, userObj).catch((e) => {
+      throw Boom.badRequest(req, e)
+    })
 
     return response_handler.success(req, { access_token }, 'OK', h)
   }

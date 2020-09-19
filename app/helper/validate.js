@@ -34,25 +34,14 @@ module.exports = {
             .takeover()
         }
       } catch (e) {
-        if (e.name == 'TokenExpiredError') {
-          return h
-            .response({
-              success: false,
-              statusCode: 463,
-              message: 'Authorization Required ' + e.message
-            })
-            .code(463)
-            .takeover()
-        } else {
-          return h
-            .response({
-              success: false,
-              statusCode: 403,
-              message: 'Authorization Required'
-            })
-            .code(403)
-            .takeover()
-        }
+        return h
+          .response({
+            success: false,
+            statusCode: 403,
+            message: 'Authorization Required'
+          })
+          .code(403)
+          .takeover()
       }
     } else {
       return h.continue
