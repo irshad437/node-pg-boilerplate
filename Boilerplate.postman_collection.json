@@ -1,0 +1,370 @@
+{
+	"info": {
+		"_postman_id": "ff315bea-7130-45e5-9434-331570d85972",
+		"name": "Boilerplate",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "user",
+			"item": [
+				{
+					"name": "Create Account/SIgnup",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"first_name\": \"John5\",\n    \"last_name\": \"Doe5\",\n    \"email\": \"john4@example.com\",\n    \"mobile\": \"9999999999\",\n    \"password\": \"john@example.com\",\n    \"above18_fair_use\": true\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/api/user/auth/signup",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"user",
+								"auth",
+								"signup"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Create Account/SIgnup",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"first_name\": \"John5\",\n    \"last_name\": \"Doe5\",\n    \"email\": \"john5@example.com\",\n    \"mobile\": \"9999999999\",\n    \"password\": \"john@example.com\",\n    \"above18_fair_use\": true\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:3000/api/user/auth/create",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"user",
+										"auth",
+										"create"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "content-type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "cache-control",
+									"value": "no-cache"
+								},
+								{
+									"key": "content-length",
+									"value": "465"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 08 May 2020 13:03:07 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": true,\n    \"data\": {\n        \"access_token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmaXJzdF9uYW1lIjoiSm9objUiLCJsYXN0X25hbWUiOiJEb2U1IiwiZW1haWwiOiJqb2huNUBleGFtcGxlLmNvbSIsIm1vYmlsZSI6Ijk5OTk5OTk5OTkiLCJ1c2VyX3R5cGUiOjIsImFib3ZlMThfZmFpcl91c2UiOnRydWUsInBhc3N3b3JkIjoiJDJiJDEwJEdrTURvZ1dXalRiMFR2ZTlxZHpvZGV1eGsxZVBXMm9OSVVNR1ZSV3VEN3ZmcjhTQlkxLjUuIiwiaWF0IjoxNTg4OTQyOTg3LCJleHAiOjEwMDAwMDAxNTg4OTQyOTg4fQ.rdZTfp-v5swxY7L5M8gSitNC3_gcjrYVbZE6pf3LceY\"\n    },\n    \"message\": \"OK\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Get user profile",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "03c4f5cf72ff36ea64993e99092d28352c799236f03e7b113c2aa0fb8aa523b4035bdf3a1ebf68bbd42499e7517f50a2c2d93de45947f9bb9f67a2b279d507e1d51a7fd174e77c7636f30cebe74a8e09c3a6fb8144450dac0aade4750c9c5177371bb458273ce685263f45ba0b3ac93bc8df62451afca8e42fb85441b92d8e80",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:3000/api/user/profile",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"user",
+								"profile"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Create Account/SIgnup",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"first_name\": \"John5\",\n    \"last_name\": \"Doe5\",\n    \"email\": \"john5@example.com\",\n    \"mobile\": \"9999999999\",\n    \"password\": \"john@example.com\",\n    \"above18_fair_use\": true\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:3000/api/user/auth/create",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"user",
+										"auth",
+										"create"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "content-type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "cache-control",
+									"value": "no-cache"
+								},
+								{
+									"key": "content-length",
+									"value": "465"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 08 May 2020 13:03:07 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": true,\n    \"data\": {\n        \"access_token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmaXJzdF9uYW1lIjoiSm9objUiLCJsYXN0X25hbWUiOiJEb2U1IiwiZW1haWwiOiJqb2huNUBleGFtcGxlLmNvbSIsIm1vYmlsZSI6Ijk5OTk5OTk5OTkiLCJ1c2VyX3R5cGUiOjIsImFib3ZlMThfZmFpcl91c2UiOnRydWUsInBhc3N3b3JkIjoiJDJiJDEwJEdrTURvZ1dXalRiMFR2ZTlxZHpvZGV1eGsxZVBXMm9OSVVNR1ZSV3VEN3ZmcjhTQlkxLjUuIiwiaWF0IjoxNTg4OTQyOTg3LCJleHAiOjEwMDAwMDAxNTg4OTQyOTg4fQ.rdZTfp-v5swxY7L5M8gSitNC3_gcjrYVbZE6pf3LceY\"\n    },\n    \"message\": \"OK\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Login",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"john4@example.com\",\n    \"password\": \"john@example.com\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/api/user/auth/login",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"user",
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Create Account/SIgnup",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"first_name\": \"John5\",\n    \"last_name\": \"Doe5\",\n    \"email\": \"john5@example.com\",\n    \"mobile\": \"9999999999\",\n    \"password\": \"john@example.com\",\n    \"above18_fair_use\": true\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:3000/api/user/auth/create",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"user",
+										"auth",
+										"create"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "content-type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "cache-control",
+									"value": "no-cache"
+								},
+								{
+									"key": "content-length",
+									"value": "465"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 08 May 2020 13:03:07 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": true,\n    \"data\": {\n        \"access_token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmaXJzdF9uYW1lIjoiSm9objUiLCJsYXN0X25hbWUiOiJEb2U1IiwiZW1haWwiOiJqb2huNUBleGFtcGxlLmNvbSIsIm1vYmlsZSI6Ijk5OTk5OTk5OTkiLCJ1c2VyX3R5cGUiOjIsImFib3ZlMThfZmFpcl91c2UiOnRydWUsInBhc3N3b3JkIjoiJDJiJDEwJEdrTURvZ1dXalRiMFR2ZTlxZHpvZGV1eGsxZVBXMm9OSVVNR1ZSV3VEN3ZmcjhTQlkxLjUuIiwiaWF0IjoxNTg4OTQyOTg3LCJleHAiOjEwMDAwMDAxNTg4OTQyOTg4fQ.rdZTfp-v5swxY7L5M8gSitNC3_gcjrYVbZE6pf3LceY\"\n    },\n    \"message\": \"OK\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Logout",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "4957343c8675b7b7b66f5029fd64a2f0ed3371566adec44e97167c05a5bc8b49cb48b593f0272c6bcea0ad1e574fed071f89696d99820c4d51ec6796b0284dc1058109ff326d294a57af46df5ebf90feafec91db74242e227bfd8a95352776c11c45dfd8647b5454edd4ce2a917ff126a55901ecc084a1f53575d7e5c4dbac9d",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "localhost:3000/api/user/logout",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"user",
+								"logout"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Create Account/SIgnup",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"first_name\": \"John5\",\n    \"last_name\": \"Doe5\",\n    \"email\": \"john5@example.com\",\n    \"mobile\": \"9999999999\",\n    \"password\": \"john@example.com\",\n    \"above18_fair_use\": true\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:3000/api/user/auth/create",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"user",
+										"auth",
+										"create"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "content-type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "cache-control",
+									"value": "no-cache"
+								},
+								{
+									"key": "content-length",
+									"value": "465"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 08 May 2020 13:03:07 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": true,\n    \"data\": {\n        \"access_token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmaXJzdF9uYW1lIjoiSm9objUiLCJsYXN0X25hbWUiOiJEb2U1IiwiZW1haWwiOiJqb2huNUBleGFtcGxlLmNvbSIsIm1vYmlsZSI6Ijk5OTk5OTk5OTkiLCJ1c2VyX3R5cGUiOjIsImFib3ZlMThfZmFpcl91c2UiOnRydWUsInBhc3N3b3JkIjoiJDJiJDEwJEdrTURvZ1dXalRiMFR2ZTlxZHpvZGV1eGsxZVBXMm9OSVVNR1ZSV3VEN3ZmcjhTQlkxLjUuIiwiaWF0IjoxNTg4OTQyOTg3LCJleHAiOjEwMDAwMDAxNTg4OTQyOTg4fQ.rdZTfp-v5swxY7L5M8gSitNC3_gcjrYVbZE6pf3LceY\"\n    },\n    \"message\": \"OK\"\n}"
+						}
+					]
+				}
+			],
+			"protocolProfileBehavior": {}
+		}
+	],
+	"protocolProfileBehavior": {}
+}
